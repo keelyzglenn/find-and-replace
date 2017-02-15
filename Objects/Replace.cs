@@ -41,17 +41,17 @@ namespace FindAndReplace.Objects
       {
           string replacementString = "";
           foreach (string word in _sentenceSplitArray) {
-              if(word.ToLower() == _wordSelect.ToLower())
+              if(word.ToLower().Contains(_wordSelect.ToLower()))
               {
 
                   if(word.Any(char.IsUpper))
                   {
-                      replacementString += _replacementWord.First().ToString().ToUpper() + String.Join("", _replacementWord.Skip(1)) + " ";
+                      replacementString += _replacementWord.First().ToString().ToUpper() + String.Join("", _replacementWord.Skip(1)) + String.Join("", word.Skip(_wordSelect.Length))+ " ";
 
                   }
                   else
                   {
-                      replacementString += _replacementWord + " ";
+                      replacementString += _replacementWord + String.Join("", word.Skip(_wordSelect.Length)) + " ";
                   }
               }
               else
