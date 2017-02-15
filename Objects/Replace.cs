@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FindAndReplace.Objects
 {
@@ -30,7 +31,7 @@ namespace FindAndReplace.Objects
               if(word == _wordSelect)
               {
                   matchingWords.Add(word);
-                  Console.WriteLine(word);
+
               }
           }
           return matchingWords;
@@ -40,9 +41,18 @@ namespace FindAndReplace.Objects
       {
           string replacementString = "";
           foreach (string word in _sentenceSplitArray) {
-              if(word == _wordSelect)
+              if(word.ToLower() == _wordSelect.ToLower())
               {
-                  replacementString += _replacementWord + " ";
+
+                  if(word.Any(char.IsUpper))
+                  {
+                      replacementString += _replacementWord.First().ToString().ToUpper() + String.Join("", _replacementWord.Skip(1)) + " ";
+
+                  }
+                  else
+                  {
+                      replacementString += _replacementWord + " ";
+                  }
               }
               else
               {

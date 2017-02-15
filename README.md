@@ -16,3 +16,6 @@ Replace any matched words with a replacement word
 Replace any partial matches with the replacement word
     * Input: "I am walking my cat to the cathedral"
     * Output: "I am walking my dog to the doghedral"
+
+string hello = "hello";
+    hello.First().ToString().ToUpper() + String.Join("", hello.Skip(1));

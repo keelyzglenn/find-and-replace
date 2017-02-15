@@ -2,6 +2,7 @@ using Xunit;
 using FindAndReplace.Objects;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FindAndReplace
 {
@@ -19,8 +20,7 @@ namespace FindAndReplace
           string[] sentenceSplitArray = new string[] {"this", "sentence"};
           //Act
           var result = newReplace.GetSentenceSplitArray();
-        //   Console.WriteLine(result[0]);
-        //   Console.WriteLine(sentenceSplitArray[0]);
+
           //Assert
           Assert.Equal(sentenceSplitArray, result);
       }
@@ -36,8 +36,7 @@ namespace FindAndReplace
           List<string> matchingWords = new List<string> {"this", "this"};
           //Act
           List<string> result = newReplace.CompareWords();
-          Console.WriteLine(matchingWords[0]);
-          Console.WriteLine(result[0]);
+
           //Assert
           Assert.Equal(matchingWords, result);
       }
@@ -47,14 +46,14 @@ namespace FindAndReplace
       public void ReplaceWord_ReturnReplacementWord_String()
       {
           //Arrange
-          string sentence = "this sentence is this";
+          string sentence = "This sentence is this";
           string word = "this";
           string replace = "not";
           Replace newReplace = new Replace(sentence, word, replace);
-          string replacement = "not sentence is not ";
+          string replacement = "Not sentence is not ";
           //Act
           string result = newReplace.ReplaceWord();
-          Console.WriteLine(result);
+
 
           //Assert
           Assert.Equal(replacement, result);
