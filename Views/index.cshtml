@@ -1,0 +1,31 @@
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+<div class="container">
+
+  <div class="row jumbotron">
+    <h1>Find and Replace</h1>
+  </div>
+
+  <div class="row">
+    <form class="" action="/result" method="post">
+      <label for="sentence">Enter a sentence</label>
+      <input type="text" name="sentence">
+      <label for="word">Enter a word to compare</label>
+      <input type="text" name="word">
+      <label for="replacement-word">Enter a word to replace</label>
+      <input type="text" name="replacement-word">
+      <button class="btn" type="submit" name="button">Submit</button>
+    </form>
+  </div>
+
+
+  <div class="row">
+      @if(@Model != null)
+      {
+          <h2>Your new sentence is:</h2>
+          <h3>@Model</h3>
+      }
+  </div>
+
+</div>
